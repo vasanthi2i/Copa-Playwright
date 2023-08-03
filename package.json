@@ -1,0 +1,22 @@
+  {
+    "name": "playwright-automation",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "playwright test --config=/Users/Windows/Desktop/Copa/Colgate_Alingner/playwright.config.ts"},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@playwright/test": "^1.36.1"
+    },
+  
+  "dependencies": {
+    "winston": "^3.3.3",
+  "@types/winston": "^2.4.4",
+  "chrome-launcher": "^0.15.2"
+    
+  
+  }
+}
