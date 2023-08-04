@@ -21,7 +21,7 @@ test("Verify login is successful with valid credentials", async function ({page,
     await TestUtils.launchUrl(process.env.COPA_QA_ENV_URL, page);
 
     //Login page is navigated
-    await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PWD);
+    await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
     TestUtils.log("Login Page", "Logged-in Successfully");
 
     //Get title of the Login page and assert
