@@ -14,14 +14,14 @@ import { TestUtils } from "../src/utils/TestUtils";
 test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async ({ page, request }, testResult) => {
 
   test.setTimeout(1500000);
-  await TestUtils.launchUrl("https://qa.colgatesmiledesign.com/#/login", page);
+  await TestUtils.launchUrl(process.env.COPA_QA_ENV_URL, page);
   //await page.goto("https://qa.colgatesmiledesign.com/#/login");
   const pages: any[] = [];
   pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page));
   const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page] = pages;
 
   //copa url
-  //Login Page is created
+  //Login Page is navigated
   await login_page.enterEmailPassWordandLogin("ttvcopa1@mailinator.com", "Copa12#");
   TestUtils.log("Login Page", "Logged-in Successfully");
 

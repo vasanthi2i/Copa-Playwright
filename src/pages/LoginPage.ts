@@ -16,12 +16,12 @@ export class LoginPage implements Loginpageint {
     }
 
 
-    async enterEmail(emailval: string): Promise<void> {
+    async enterEmail(emailval): Promise<void> {
         await this.email.click();
         await this.email.fill(emailval);
 
     }
-    async enterPassWord(pwd: string): Promise<void> {
+    async enterPassWord(pwd): Promise<void> {
         await this.pwd.click();
         await this.pwd.fill(pwd);
     }
@@ -29,7 +29,7 @@ export class LoginPage implements Loginpageint {
         await this.loginbutton.click();
     }
 
-    async enterEmailPassWordandLogin(emailval: string, pwd: string): Promise<void> {
+    async enterEmailPassWordandLogin(emailval, pwd): Promise<void> {
         await this.enterEmail(emailval);
         await this.enterPassWord(pwd);
         await this.clickLogin();

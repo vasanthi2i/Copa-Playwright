@@ -9,14 +9,20 @@ export class Logout implements Logoutint {
     changepassword: Locator;
     logout: Locator;
 
-    clickMyAccount(): void {
-        throw new Error("Method not implemented.");
+    constructor(page: Page){
+        this.page = page;
+        this.accountdropdown = page.getByTestId('ArrowDropDownIcon');
+        this.logout = page.locator("//li[contains(text(),'Logout')]");
+    }
+
+    async clickMyAccount(): Promise<void> {
+        await this.accountdropdown.click();
     }
     clickChangePassword(): void {
         throw new Error("Method not implemented.");
     }
-    clickLogout(): void {
-        throw new Error("Method not implemented.");
+    async clickLogout(): Promise<void> {
+        await this.logout.click();
     }
 
 }

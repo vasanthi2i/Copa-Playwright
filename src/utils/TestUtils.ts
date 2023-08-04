@@ -3,9 +3,10 @@ import { test,expect } from "@playwright/test";
 import logger from "../utils/logger";
 export class TestUtils {
 
-  static async launchUrl(url:string, page:Page): Promise<void>
+  static async launchUrl(url, page:Page): Promise<void>
   {
     await page.goto(url);
+    console.log(url);
   }
   static async getOrderid(url: string): Promise<string> {
     const parts = url.split("/");
