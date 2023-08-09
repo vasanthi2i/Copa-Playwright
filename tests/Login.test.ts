@@ -13,6 +13,7 @@ import {Logout} from "../src/pages/Logout";
 
 test("Verify login is successful with valid credentials", async function ({page,request},testResult) {
     
+    test.setTimeout(1500000);
     const pages: any[] = [];
     pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page), new Logout(page));
     const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page, Logout_page] = pages;

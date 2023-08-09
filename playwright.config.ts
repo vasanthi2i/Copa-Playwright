@@ -22,7 +22,7 @@ export default defineConfig({
     actionTimeout: 60000,
     trace: 'on',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: true,
     navigationTimeout: 80000,
     video: 'on',
     deviceScaleFactor: 2,
@@ -38,15 +38,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] , viewport: { width: 1260, height: 600 } },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     // {
     //   name: 'Google Chrome',
