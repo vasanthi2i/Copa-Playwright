@@ -37,5 +37,9 @@ export class TestUtils {
       expect(await page.title()).toBe(expectedtitle);
   }
 
+  static async getUrlOfThePage(page: Page): Promise<string>{
+    return page.url();
+  }
+
 
 }

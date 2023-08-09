@@ -14,7 +14,7 @@ import { TestUtils } from "../src/utils/TestUtils";
 test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async ({ page, request }, testResult) => {
 
   test.setTimeout(1500000);
-  await TestUtils.launchUrl(process.env.COPA_QA_ENV_URL, page);
+  await TestUtils.launchUrl(process.env.COPA_ENV_URL, page);
   //await page.goto("https://qa.colgatesmiledesign.com/#/login");
   const pages: any[] = [];
   pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page));
@@ -22,7 +22,8 @@ test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async
 
   //copa url
   //Login Page is navigated
-  await login_page.enterEmailPassWordandLogin("ttvcopa1@mailinator.com", "Copa12#");
+  //await login_page.enterEmailPassWordandLogin("ttvcopa1@mailinator.com", "Copa12#");
+  await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
   TestUtils.log("Login Page", "Logged-in Successfully");
 
   //Patients Page
