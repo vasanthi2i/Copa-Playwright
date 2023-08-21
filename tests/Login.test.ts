@@ -13,7 +13,7 @@ import {Logout} from "../src/pages/Logout";
 
 test("Verify login is successful with valid credentials", async ({page,request}) => {
     
-    test.setTimeout(300000);
+    test.setTimeout(60000);
     const pages: any[] = [];
     pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page), new Logout(page));
     const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page, Logout_page] = pages;
@@ -23,7 +23,7 @@ test("Verify login is successful with valid credentials", async ({page,request})
     console.log(process.env.ENV_URL);
 
     //Login page is navigated
-    await login_page.enterEmailPassWordandLogin(process.env.EMAIL, process.env.PSWD);
+    await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
     TestUtils.log("Login Page", "Logged-in Successfully");
      
     TestUtils.log("Home page", " Navigated to home page");

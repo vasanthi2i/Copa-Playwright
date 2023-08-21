@@ -7,8 +7,8 @@ dotenv.config({
 });
 
 export default defineConfig({
- testMatch: '/tests/Verify_user_able_to_Upload_Images_for_patient.test.ts',
-  //testMatch: '/tests/Login.test.ts',
+ //testMatch: '/tests/Verify_user_able_to_Upload_Images_for_patient.test.ts',
+  testMatch: '/tests/Login.test.ts',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
