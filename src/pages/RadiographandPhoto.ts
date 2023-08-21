@@ -36,7 +36,15 @@ export class RadiographandPhoto implements Radiographandphotoint {
 
     }
     async uploadFullFace(): Promise<void> {
-        throw new Error("Method not implemented.");
+        const [fileChooser] = await Promise.all([
+            // It is important to call waitForEvent before click to set up waiting.
+            this.page.waitForEvent('filechooser'),
+            // Opens the file chooser.
+            await this.fullface.click(),
+        ])
+        await fileChooser.setFiles([
+            'images/Donald Duck.png'
+        ]);
     }
     async uploadRetractedSmile(): Promise<void> {
         throw new Error("Method not implemented.");

@@ -11,23 +11,24 @@ import { OrderPage } from "../src/pages/OrderPage";
 import {Logout} from "../src/pages/Logout";
 
 
-test("Verify login is successful with valid credentials", async function ({page,request},testResult) {
+test("Verify login is successful with valid credentials", async ({page,request}) => {
     
-    test.setTimeout(1500000);
+    test.setTimeout(300000);
     const pages: any[] = [];
     pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page), new Logout(page));
     const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page, Logout_page] = pages;
 
     //Launch the url fetched from env file
-    await TestUtils.launchUrl(process.env.COPA_ENV_URL, page);
+    await TestUtils.launchUrl(process.env.ENV_URL, page);
+    console.log(process.env.ENV_URL);
 
     //Login page is navigated
-    await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
+    await login_page.enterEmailPassWordandLogin(process.env.EMAIL, process.env.PSWD);
     TestUtils.log("Login Page", "Logged-in Successfully");
      
     TestUtils.log("Home page", " Navigated to home page");
 
-     //Get the url of the current page 
+     //Assert the current url of page with expected urlP
      if(process.env.ENV==='qa')
      {
      page.waitForURL("https://qa.colgatesmiledesign.com/#/patients");

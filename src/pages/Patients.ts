@@ -9,6 +9,7 @@ export class Patients implements Patientsint {
     myaccount: Locator;
     changepassword: Locator;
     logout: Locator;
+    
 
 
     constructor(page: Page) {

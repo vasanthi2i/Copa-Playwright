@@ -11,6 +11,10 @@ export class Clinicalinformation implements Clinicalinformationint {
     back: Locator;
     cancel: Locator;
     next: Locator;
+    saveForLaterPopup: Locator;
+    saveAndCloseButton: Locator;
+    discardButton: Locator;
+    closePopupButton: Locator;
 
 
     constructor(page: Page) {
@@ -19,6 +23,11 @@ export class Clinicalinformation implements Clinicalinformationint {
         this.no = page.getByRole('button', { name: 'No' });
         this.notes = page.getByTestId('leftArea');
         this.next = page.getByRole('button', { name: 'Next' });
+        this.cancel = page.getByRole('button', { name: 'Cancel'});
+        this.saveForLaterPopup = page.locator("//div[@role='dialog']//span[contains(text(),'Save this patient for later?')]");
+        this.saveAndCloseButton = page.getByRole('button', { name: 'Yes, save and close'});
+        this.discardButton = page.getByRole('button', { name: 'No, discard'});
+        this.closePopupButton = page.getByTestId("CloseIcon");
 
     }
 
@@ -45,7 +54,20 @@ export class Clinicalinformation implements Clinicalinformationint {
 
     }
     async clickCancel(): Promise<void> {
-        throw new Error("Method not implemented.");
+        await this.cancel.click();
+    }
+
+    async returnSaveForLaterPopupLocator(): Promise<Locator>{
+        return this.saveForLaterPopup;
+    }
+    async returnSaveAndCloseLocator(): Promise<Locator>{
+        return await this.saveAndCloseButton;
+    }
+    async returnDiscardButtonLocator(): Promise<Locator>{
+        return await this.discardButton;
+    }
+    async returnClosePopupLocator(): Promise<Locator>{
+        return await this.closePopupButton;
     }
 
 

@@ -4,17 +4,20 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "playwright test --config=/Users/Windows/Desktop/Copa/Colgate_Alingner/playwright.config.ts"
+        "test": "playwright test --config=./playwright.config.ts"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@playwright/test": "^1.36.1"
-    },
+        "@playwright/test": "^1.36.1",
+        "allure-commandline": "^2.23.1",
+        "allure-playwright": "2.5.0"
+        },
     "dependencies": {
         "@types/winston": "^2.4.4",
         "chrome-launcher": "^0.15.2",
+        "csv-parse": "^5.4.0",
         "dotenv": "^16.3.1",
         "winston": "^3.3.3"
     }

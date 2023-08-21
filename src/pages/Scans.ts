@@ -15,6 +15,7 @@ export class Scans implements Scansint {
         this.uploadupperscan = page.getByTestId('upperInput');
         this.uploadlowerscan = page.getByTestId('lowerInput');
         this.next = page.getByRole('button', { name: 'Next' });
+        this.cancel = page.getByRole('button', { name: 'Cancel'});
 
     }
 
@@ -22,14 +23,12 @@ export class Scans implements Scansint {
     async uploadUpperScan(): Promise<void> {
         //await this.uploadupperscan.setInputFiles('images/arch_u.stl');
         await this.page.waitForTimeout(20000);
-        //await this.page.setInputFiles("//input[contains(@data-testid, 'upperInput')]", 'C:/Users/Windows/Desktop/Copa/Colgate_Alingner/images/arch_u.stl');
         await this.page.setInputFiles("//input[contains(@data-testid, 'upperInput')]", 'images/arch_u.stl');
         await this.page.waitForTimeout(8000);
 
     }
     async uploadLowerScan(): Promise<void> {
         await this.page.setInputFiles("//input[contains(@data-testid, 'lowerInput')]", 'images/arch_l.stl');
-        //await this.page.setInputFiles("//input[contains(@data-testid, 'lowerInput')]", 'C:/Users/Windows/Desktop/Copa/Colgate_Alingner/images/arch_l.stl');
         await this.page.waitForTimeout(39000);
 
     }
@@ -41,8 +40,13 @@ export class Scans implements Scansint {
         await this.next.press('Enter');
     }
     async clickCancel(): Promise<void> {
-        throw new Error("Method not implemented.");
+        await this.page.locator("//button[contains(text(),'Cancel')]").isVisible();
+        throw this.cancel.click();
+
+        //div[@role="dialog"]//span[contains(text(),'Save this patient for later?')]
     }
+
+    
 
 
 }

@@ -1,0 +1,3 @@
+https://qa.colgatesmiledesign.com/#/login
+{"level":"info","message":"NaN:Logged-in Successfully"}
+{"level":"info","message":"NaN:Add PatientData Button Clicked"}

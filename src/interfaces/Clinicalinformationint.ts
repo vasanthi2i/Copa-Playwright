@@ -1,4 +1,4 @@
-import { Locator, Page } from "playwright";
+import { Locator, Page } from "@playwright/test";
 
 
 
@@ -11,5 +11,9 @@ export interface Clinicalinformationint {
     moveback(): void;
     moveNext(): void;
     clickCancel(): void;
+    returnSaveForLaterPopupLocator(): Promise<Locator>;
+    returnSaveAndCloseLocator(): Promise<Locator>;
+    returnDiscardButtonLocator(): Promise<Locator>;
+    returnClosePopupLocator(): Promise<Locator>;
 
 }

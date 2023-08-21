@@ -14,15 +14,15 @@ import { TestUtils } from "../src/utils/TestUtils";
 test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async ({ page, request }, testResult) => {
 
   test.setTimeout(1500000);
-  await TestUtils.launchUrl(process.env.COPA_ENV_URL, page);
-  //await page.goto("https://qa.colgatesmiledesign.com/#/login");
+
   const pages: any[] = [];
   pages.push(new LoginPage(page), new Patients(page), new Patientinformation(page), new Clinicalinformation(page), new Scans(page), new RadiographandPhoto(page), new TreatandPreparePlan(page), new OrderPage(page));
   const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page] = pages;
 
-  //copa url
-  //Login Page is navigated
-  //await login_page.enterEmailPassWordandLogin("ttvcopa1@mailinator.com", "Copa12#");
+  //Launch the url
+  await TestUtils.launchUrl(process.env.COPA_ENV_URL, page);
+
+  //Enter email and pwd to login
   await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
   TestUtils.log("Login Page", "Logged-in Successfully");
 
@@ -53,6 +53,8 @@ test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async
   //RadioPhoto Page
   await RadioandPhoto_page.uploadPanorex();
   await TestUtils.waitforLoad(page);
+  // await RadioandPhoto_page.uploadFullFace();
+  // await TestUtils.waitforLoad(page);
   await RadioandPhoto_page.moveNext();
   TestUtils.log("RadioPhoto Page", "Radigraphs Files Uploaded Successfully");
 

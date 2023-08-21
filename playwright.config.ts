@@ -1,12 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
+
 dotenv.config({
   path:`./env/.env.${process.env.ENV}`,
 });
 
 export default defineConfig({
-  testMatch: '/tests/Login.test.ts',
+ testMatch: '/tests/Verify_user_able_to_Upload_Images_for_patient.test.ts',
+  //testMatch: '/tests/Login.test.ts',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -16,13 +18,12 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
+  reporter: [['html'],['allure-playwright']],
+    use: {
     actionTimeout: 60000,
     trace: 'on',
     screenshot: 'only-on-failure',
-    headless: true,
+    headless: false,
     navigationTimeout: 80000,
     video: 'on',
     deviceScaleFactor: 2,
@@ -38,15 +39,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] , viewport: { width: 1260, height: 600 } },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     // {
     //   name: 'Google Chrome',

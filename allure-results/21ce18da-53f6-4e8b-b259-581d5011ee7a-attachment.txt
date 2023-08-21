@@ -1,0 +1,10 @@
+https://qa.colgatesmiledesign.com/#/login
+ttvcopa1@mailinator.com
+{"level":"info","message":"NaN:Logged-in Successfully"}
+{"level":"info","message":"NaN:Add PatientData Button Clicked"}
+{"level":"info","message":"NaN:Patient Data Added Successfully"}
+
+ Demographic information of  #1 Patient is 
+ First name :Automation	Last name :Patient5	Date of birth :2/4/2014	Email:Patient5@mailinator.com
+true
+{"level":"info","message":"NaN:Save for later popup appeared"}
