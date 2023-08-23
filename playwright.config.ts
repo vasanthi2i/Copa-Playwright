@@ -27,7 +27,7 @@ export default defineConfig({
     actionTimeout: 60000,
     trace: 'on',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: true,
     navigationTimeout: 80000,
     video: 'on',
     deviceScaleFactor: 2,
