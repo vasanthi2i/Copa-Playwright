@@ -20,6 +20,5 @@ export class PatientOverviewPage implements PatientOverviewint {
         const patName = page.getByText(patientName);
         return patName;
     }
-    //p[contains(text(),'Automation Patient1')]
 }
 

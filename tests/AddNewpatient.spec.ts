@@ -20,7 +20,7 @@ test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async
   const [login_page, Patients_page, Patientsinformation_page, Clinicalinfo_page, Scan_page, RadioandPhoto_page, TreatandPreparePlan_page, Order_page] = pages;
 
   //Launch the url
-  await TestUtils.launchUrl(process.env.COPA_ENV_URL, page);
+  await TestUtils.launchUrl(process.env.ENV_URL, page);
 
   //Enter email and pwd to login
   await login_page.enterEmailPassWordandLogin(process.env.UNAME, process.env.PASSWORD);
@@ -53,8 +53,8 @@ test("Verify New Patient Treatment Plan Creation and Order Confirmation ", async
   //RadioPhoto Page
   await RadioandPhoto_page.uploadPanorex();
   await TestUtils.waitforLoad(page);
-  // await RadioandPhoto_page.uploadFullFace();
-  // await TestUtils.waitforLoad(page);
+  await RadioandPhoto_page.uploadFullFace();
+  //await TestUtils.waitforLoad(page);
   await RadioandPhoto_page.moveNext();
   TestUtils.log("RadioPhoto Page", "Radigraphs Files Uploaded Successfully");
 

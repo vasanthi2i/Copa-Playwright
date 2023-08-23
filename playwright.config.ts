@@ -8,7 +8,11 @@ dotenv.config({
 
 export default defineConfig({
  //testMatch: '/tests/Verify_user_able_to_Upload_Images_for_patient.test.ts',
-  testMatch: '/tests/Login.test.ts',
+  //testMatch: '/tests/Login.test.ts',
+ //testMatch: '/tests/AddNewpatient.spec.ts',
+  testDir: 'tests',
+  // testIgnore: '*Login.test.ts',
+  //testMatch: '*todo-tests/*.spec.ts'
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -39,15 +43,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] , viewport: { width: 1260, height: 600 } },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     // {
     //   name: 'Google Chrome',

@@ -38,7 +38,7 @@ csvdata.then((element) => {
             //Patients Information Page
             await Patientsinformation_page.enterPatientinformation(res.First_name, res.Last_name, res.MM, res.DD, res.YYYY, res.Email);
             TestUtils.log("Patients Information Page", "Patient Data Added Successfully");
-            console.log("\n Demographic information of  #1 Patient is \n First name :" + res.First_name + "\t" + "Last name :" + res.Last_name + "\t"
+            console.log("\n Demographic information of  # Patient is \n First name :" + res.First_name + "\t" + "Last name :" + res.Last_name + "\t"
                 + "Date of birth :" + res.MM + "/" + res.DD + "/" + res.YYYY + "\t" + "Email:" + res.Email);
 
             //Clinical Information Page
@@ -47,12 +47,12 @@ csvdata.then((element) => {
             await Clinicalinfo_page.clickCancel();
 
             const isPopupVisible = await TestUtils.saveforLaterpopup(page, await Clinicalinfo_page.returnSaveForLaterPopupLocator());
-            console.log(isPopupVisible);
+            //console.log(isPopupVisible);
             await TestUtils.clickSaveAndCloseButton(page, await Clinicalinfo_page.returnSaveAndCloseLocator());
         
             TestUtils.log("Clinical Information Page", "Save for later popup appeared");
 
-            const patname = await PatientOverview_page.getPatientname(page, res.First_name+" "+res.Last_name);
+            //const patname = await PatientOverview_page.getPatientname(page, res.First_name+" "+res.Last_name);
             // console.log(patname);
             await expect(page.getByText(res.First_name+" "+res.Last_name)).toBeVisible();
 
